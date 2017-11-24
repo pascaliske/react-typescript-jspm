@@ -1,0 +1,10 @@
+# files
+.idea
+.DS_Store
+*.sublime-*
+*.log
+
+# folders
+node_modules
+vendor
+dist

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "esnext",
+      "es2017.object"
+    ],
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./typings",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./typings.d.ts",
+    "./src/**/*.ts"
+  ]
+}

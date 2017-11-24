@@ -1,0 +1,7 @@
+.application {
+    color: green;
+
+    &.loading {
+        color: red;
+    }
+}

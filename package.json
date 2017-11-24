@@ -1,0 +1,137 @@
+{
+  "name": "react-typescript-jspm",
+  "description": "Demo project for using React with TypeScript via JSPM and it's module loader SystemJS.",
+  "author": {
+    "name": "Pascal Iske",
+    "email": "info@pascal-iske.de",
+    "url": "https://pascal-iske.de"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/pascaliske/react-typescript-jspm.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/pascaliske/react-typescript-jspm/issues"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "bundle": "jspm bundle bootstrap.tsx public/common.min.js --minify",
+    "depcache": "jspm depcache bootstrap.tsx",
+    "build": "rm -rf dist/ typings/ && tsc",
+    "watch": "yarn run build --watch",
+    "serve": "nodemon dist/index.js --watch src/ --ext ts",
+    "docs": "typedoc --target es5 --mode file --module commonjs --excludePrivate --out docs/ **/*.ts"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jspm": "^0.17.0-beta.47"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.39",
+    "@types/node": "^8.0.53",
+    "@types/spdy": "^3.4.4",
+    "nodemon": "^1.12.1",
+    "spdy": "^3.4.7",
+    "typedoc": "^0.9.0",
+    "typescript": "^2.6.1"
+  },
+  "jspm": {
+    "name": "app",
+    "main": "public/bootstrap.tsx",
+    "configFiles": {
+      "jspm": "public/config.js",
+      "jspm:dev": "jspm.dev.js",
+      "jspm:browser": "jspm.browser.js",
+      "jspm:node": "jspm.node.js"
+    },
+    "directories": {
+      "baseURL": "public",
+      "packages": "public/vendor"
+    },
+    "dependencies": {
+      "libraries/classnames": "npm:classnames@^2.2.5",
+      "libraries/core-decorators": "npm:core-decorators@^0.20.0",
+      "libraries/react": "npm:react@^16.1.1",
+      "libraries/react-dom": "npm:react-dom@^16.1.1"
+    },
+    "devDependencies": {
+      "graceful-fs": "npm:graceful-fs@^4.1.9",
+      "module": "npm:jspm-nodelibs-module@^0.2.0",
+      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^8.0.0",
+      "sass": "github:dougludlow/plugin-sass@^0.6.0",
+      "typescript": "npm:typescript@^2.4.0"
+    },
+    "peerDependencies": {
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
+      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "domain": "npm:jspm-nodelibs-domain@^0.2.0",
+      "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "http": "npm:jspm-nodelibs-http@^0.2.0",
+      "https": "npm:jspm-nodelibs-https@^0.2.0",
+      "os": "npm:jspm-nodelibs-os@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "react": "npm:react@^16.0.0",
+      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+      "url": "npm:jspm-nodelibs-url@^0.2.0",
+      "util": "npm:jspm-nodelibs-util@^0.2.0",
+      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
+    },
+    "overrides": {
+      "npm:browserify-zlib@0.1.4": {
+        "dependencies": {
+          "readable-stream": "^2.0.2",
+          "pako": "~0.2.0"
+        },
+        "map": {
+          "_stream_transform": "readable-stream/transform"
+        }
+      },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:pbkdf2@3.0.14": {
+        "main": "browser.js"
+      },
+      "npm:safe-buffer@5.1.1": {
+        "browser": "index.js"
+      },
+      "npm:sass.js@0.9.13": {
+        "map": {
+          "ws": "@empty"
+        },
+        "meta": {
+          "dist/sass.worker.js": {
+            "format": "global"
+          }
+        }
+      },
+      "npm:typescript@2.6.1": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        },
+        "dependencies": {
+          "source-map-support": "*"
+        }
+      }
+    }
+  }
+}
