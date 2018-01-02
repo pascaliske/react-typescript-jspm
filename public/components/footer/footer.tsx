@@ -1,9 +1,9 @@
 import React from 'libraries/react'
 import classnames from 'libraries/classnames'
 
-import './application.scss'
+import './_footer.scss'
 
-export class Application extends React.Component {
+export class Footer extends React.Component {
     /* --- constants --- */
 
     /* --- properties --- */
@@ -20,14 +20,8 @@ export class Application extends React.Component {
      * @returns {any}
      */
     public render(): any {
-        const classes = classnames('application', {
-            loading: true
-        })
-
         return (
-            <div className={classes}>
-                <h1>Hello World!</h1>
-            </div>
+            <p>&copy; {(new Date()).getFullYear()} Pascal Iske</p>
         )
     }
 }

@@ -30,13 +30,14 @@
     "jspm": "^0.17.0-beta.47"
   },
   "devDependencies": {
-    "@types/express": "^4.0.39",
-    "@types/node": "^8.0.53",
+    "@types/express": "^4.11.0",
+    "@types/node": "^8.5.2",
     "@types/spdy": "^3.4.4",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.14.3",
     "spdy": "^3.4.7",
+    "tslint": "^5.8.0",
     "typedoc": "^0.9.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.2"
   },
   "jspm": {
     "name": "app",
@@ -54,16 +55,19 @@
     "dependencies": {
       "libraries/classnames": "npm:classnames@^2.2.5",
       "libraries/core-decorators": "npm:core-decorators@^0.20.0",
-      "libraries/react": "npm:react@^16.1.1",
-      "libraries/react-dom": "npm:react-dom@^16.1.1"
+      "libraries/react": "npm:react@^16.2.0",
+      "libraries/react-document-title": "npm:react-document-title@^2.0.3",
+      "libraries/react-dom": "npm:react-dom@^16.2.0",
+      "libraries/react-router": "npm:react-router@^4.2.0",
+      "libraries/react-router-dom": "npm:react-router-dom@^4.2.2"
     },
     "devDependencies": {
-      "graceful-fs": "npm:graceful-fs@^4.1.9",
-      "module": "npm:jspm-nodelibs-module@^0.2.0",
-      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "graceful-fs": "npm:graceful-fs@^4.1.11",
+      "module": "npm:jspm-nodelibs-module@^0.2.1",
+      "net": "npm:jspm-nodelibs-net@^0.2.1",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^8.0.0",
       "sass": "github:dougludlow/plugin-sass@^0.6.0",
-      "typescript": "npm:typescript@^2.4.0"
+      "typescript": "npm:typescript@^2.6.2"
     },
     "peerDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
@@ -79,7 +83,7 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^16.0.0",
+      "react": "npm:react",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
       "url": "npm:jspm-nodelibs-url@^0.2.0",

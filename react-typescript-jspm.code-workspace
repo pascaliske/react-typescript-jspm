@@ -5,5 +5,8 @@
         }
     ],
     "settings": {
+        "tslint.configFile": "tsconfig.json",
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "typescript.validate.enable": false
     }
 }

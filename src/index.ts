@@ -10,14 +10,13 @@ const options = {
 }
 
 const app = express()
+const server = http2.createServer(options, app)
 
 app.use(express.static('public'))
-
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(join(__dirname, '../public/index.html'))
 })
 
-const server = http2.createServer(options, app)
 server.listen(port, () => {
     console.log(`server listening on port ${port}`)
 })

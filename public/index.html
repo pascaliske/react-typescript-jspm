@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>React + TypeScript + JSPM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Magic Mirror</title>
 </head>
 <body>
-    <div class="root"></div>
+    <div class="root loading">
+        <i class="loader-icon fa fa-spin fa-circle-o-notch"></i>
+    </div>
 
     <script src="vendor/system.js"></script>
     <script src="config.js"></script>
-    <script>
-        SystemJS.import('bootstrap.tsx')
+    <script "text/javascript">
+        SystemJS.import('bootstrap')
     </script>
 </body>
 </html>

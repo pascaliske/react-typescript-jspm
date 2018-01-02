@@ -4,6 +4,13 @@ SystemJS.config({
   typescriptOptions: {
     "jsx": "react"
   },
+  sassPluginOptions: {
+    "autoprefixer": {
+      "browsers": [
+        "last 2 versions"
+      ]
+    }
+  },
   paths: {
     "github:": "vendor/github/",
     "npm:": "vendor/npm/",
@@ -12,13 +19,127 @@ SystemJS.config({
   browserConfig: {
     "baseURL": "/",
     "depCache": {
-      "application/application.tsx": [
-        "libraries/react"
-      ],
       "bootstrap.tsx": [
         "libraries/react",
         "libraries/react-dom",
-        "application/application.tsx"
+        "components/application/application"
+      ],
+      "components/application/application.tsx": [
+        "libraries/react",
+        "libraries/classnames",
+        "libraries/react-document-title",
+        "libraries/react-router-dom",
+        "components/overview/overview",
+        "components/projects/projects",
+        "./_application.scss"
+      ],
+      "components/footer/footer.tsx": [
+        "libraries/react",
+        "./_footer.scss"
+      ],
+      "components/header/header.tsx": [
+        "libraries/react",
+        "libraries/classnames",
+        "components/navigation/navigation.tsx",
+        "./_header.scss"
+      ],
+      "components/navigation/navigation.tsx": [
+        "libraries/react",
+        "libraries/classnames",
+        "libraries/react-router-dom",
+        "./_navigation.scss"
+      ],
+      "components/overview/overview.tsx": [
+        "libraries/react",
+        "libraries/classnames",
+        "libraries/core-decorators",
+        "libraries/react-router-dom",
+        "components/header/header",
+        "components/footer/footer",
+        "./_overview.scss"
+      ],
+      "components/projects/projects.tsx": [
+        "libraries/react",
+        "libraries/classnames",
+        "libraries/core-decorators",
+        "libraries/react-router-dom",
+        "components/header/header",
+        "components/footer/footer",
+        "./_projects.scss"
+      ],
+      "npm:core-decorators@0.20.0/lib/autobind.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/core-decorators.js": [
+        "./override",
+        "./deprecate",
+        "./suppress-warnings",
+        "./memoize",
+        "./autobind",
+        "./readonly",
+        "./enumerable",
+        "./nonenumerable",
+        "./nonconfigurable",
+        "./debounce",
+        "./throttle",
+        "./decorate",
+        "./mixin",
+        "./lazy-initialize",
+        "./time",
+        "./extendDescriptor",
+        "./profile",
+        "./applyDecorators"
+      ],
+      "npm:core-decorators@0.20.0/lib/debounce.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/decorate.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/deprecate.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/enumerable.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/extendDescriptor.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/lazy-initialize.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/memoize.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/mixin.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/nonconfigurable.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/nonenumerable.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/override.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/private/utils.js": [
+        "../lazy-initialize"
+      ],
+      "npm:core-decorators@0.20.0/lib/profile.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/readonly.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/suppress-warnings.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/throttle.js": [
+        "./private/utils"
+      ],
+      "npm:core-decorators@0.20.0/lib/time.js": [
+        "./private/utils"
       ],
       "npm:fbjs@0.8.16/lib/EventListener.js": [
         "./emptyFunction",
@@ -74,8 +195,51 @@ SystemJS.config({
         "./emptyFunction",
         "process"
       ],
+      "npm:history@4.7.2/LocationUtils.js": [
+        "resolve-pathname",
+        "value-equal",
+        "./PathUtils"
+      ],
+      "npm:history@4.7.2/createBrowserHistory.js": [
+        "warning",
+        "invariant",
+        "./LocationUtils",
+        "./PathUtils",
+        "./createTransitionManager",
+        "./DOMUtils"
+      ],
+      "npm:history@4.7.2/createHashHistory.js": [
+        "warning",
+        "invariant",
+        "./LocationUtils",
+        "./PathUtils",
+        "./createTransitionManager",
+        "./DOMUtils"
+      ],
+      "npm:history@4.7.2/createMemoryHistory.js": [
+        "warning",
+        "./PathUtils",
+        "./LocationUtils",
+        "./createTransitionManager"
+      ],
+      "npm:history@4.7.2/createTransitionManager.js": [
+        "warning"
+      ],
+      "npm:history@4.7.2/index.js": [
+        "./LocationUtils",
+        "./PathUtils",
+        "./createBrowserHistory",
+        "./createHashHistory",
+        "./createMemoryHistory"
+      ],
+      "npm:invariant@2.2.2/browser.js": [
+        "process"
+      ],
       "npm:jspm-nodelibs-process@0.2.1/process.js": [
         "@system-env"
+      ],
+      "npm:path-to-regexp@1.7.0/index.js": [
+        "isarray"
       ],
       "npm:prop-types@15.6.0/checkPropTypes.js": [
         "fbjs/lib/invariant",
@@ -83,8 +247,33 @@ SystemJS.config({
         "./lib/ReactPropTypesSecret",
         "process"
       ],
+      "npm:prop-types@15.6.0/factoryWithThrowingShims.js": [
+        "fbjs/lib/emptyFunction",
+        "fbjs/lib/invariant",
+        "./lib/ReactPropTypesSecret",
+        "process"
+      ],
+      "npm:prop-types@15.6.0/factoryWithTypeCheckers.js": [
+        "fbjs/lib/emptyFunction",
+        "fbjs/lib/invariant",
+        "fbjs/lib/warning",
+        "object-assign",
+        "./lib/ReactPropTypesSecret",
+        "./checkPropTypes",
+        "process"
+      ],
+      "npm:prop-types@15.6.0/index.js": [
+        "./factoryWithTypeCheckers",
+        "./factoryWithThrowingShims",
+        "process"
+      ],
       "npm:prop-types@15.6.0/lib/ReactPropTypesSecret.js": [
         "process"
+      ],
+      "npm:react-document-title@2.0.3/index.js": [
+        "react",
+        "prop-types",
+        "react-side-effect"
       ],
       "npm:react-dom@16.1.1/cjs/react-dom.development.js": [
         "react",
@@ -122,6 +311,134 @@ SystemJS.config({
         "./cjs/react-dom.development.js",
         "process"
       ],
+      "npm:react-router-dom@4.2.2/BrowserRouter.js": [
+        "warning",
+        "react",
+        "prop-types",
+        "history/createBrowserHistory",
+        "./Router"
+      ],
+      "npm:react-router-dom@4.2.2/HashRouter.js": [
+        "warning",
+        "react",
+        "prop-types",
+        "history/createHashHistory",
+        "./Router"
+      ],
+      "npm:react-router-dom@4.2.2/Link.js": [
+        "react",
+        "prop-types",
+        "invariant"
+      ],
+      "npm:react-router-dom@4.2.2/MemoryRouter.js": [
+        "react-router/MemoryRouter"
+      ],
+      "npm:react-router-dom@4.2.2/NavLink.js": [
+        "react",
+        "prop-types",
+        "./Route",
+        "./Link"
+      ],
+      "npm:react-router-dom@4.2.2/Prompt.js": [
+        "react-router/Prompt"
+      ],
+      "npm:react-router-dom@4.2.2/Redirect.js": [
+        "react-router/Redirect"
+      ],
+      "npm:react-router-dom@4.2.2/Route.js": [
+        "react-router/Route"
+      ],
+      "npm:react-router-dom@4.2.2/Router.js": [
+        "react-router/Router"
+      ],
+      "npm:react-router-dom@4.2.2/StaticRouter.js": [
+        "react-router/StaticRouter"
+      ],
+      "npm:react-router-dom@4.2.2/Switch.js": [
+        "react-router/Switch"
+      ],
+      "npm:react-router-dom@4.2.2/index.js": [
+        "./BrowserRouter",
+        "./HashRouter",
+        "./Link",
+        "./MemoryRouter",
+        "./NavLink",
+        "./Prompt",
+        "./Redirect",
+        "./Route",
+        "./Router",
+        "./StaticRouter",
+        "./Switch",
+        "./matchPath",
+        "./withRouter"
+      ],
+      "npm:react-router-dom@4.2.2/matchPath.js": [
+        "react-router/matchPath"
+      ],
+      "npm:react-router-dom@4.2.2/withRouter.js": [
+        "react-router/withRouter"
+      ],
+      "npm:react-router@4.2.0/MemoryRouter.js": [
+        "warning",
+        "react",
+        "prop-types",
+        "history/createMemoryHistory",
+        "./Router"
+      ],
+      "npm:react-router@4.2.0/Prompt.js": [
+        "react",
+        "prop-types",
+        "invariant"
+      ],
+      "npm:react-router@4.2.0/Redirect.js": [
+        "react",
+        "prop-types",
+        "warning",
+        "invariant",
+        "history"
+      ],
+      "npm:react-router@4.2.0/Route.js": [
+        "warning",
+        "invariant",
+        "react",
+        "prop-types",
+        "./matchPath"
+      ],
+      "npm:react-router@4.2.0/Router.js": [
+        "warning",
+        "invariant",
+        "react",
+        "prop-types"
+      ],
+      "npm:react-router@4.2.0/StaticRouter.js": [
+        "warning",
+        "invariant",
+        "react",
+        "prop-types",
+        "history/PathUtils",
+        "./Router"
+      ],
+      "npm:react-router@4.2.0/Switch.js": [
+        "react",
+        "prop-types",
+        "warning",
+        "invariant",
+        "./matchPath"
+      ],
+      "npm:react-router@4.2.0/matchPath.js": [
+        "path-to-regexp"
+      ],
+      "npm:react-router@4.2.0/withRouter.js": [
+        "react",
+        "prop-types",
+        "hoist-non-react-statics",
+        "./Route"
+      ],
+      "npm:react-side-effect@1.1.3/lib/index.js": [
+        "react",
+        "exenv",
+        "shallowequal"
+      ],
       "npm:react@16.1.1/cjs/react.development.js": [
         "object-assign",
         "fbjs/lib/invariant",
@@ -140,6 +457,9 @@ SystemJS.config({
       "npm:react@16.1.1/index.js": [
         "./cjs/react.production.min.js",
         "./cjs/react.development.js",
+        "process"
+      ],
+      "npm:warning@3.0.0/browser.js": [
         "process"
       ]
     }
@@ -287,6 +607,11 @@ SystemJS.config({
       }
     }
   },
+  packages: {
+    "./": {
+      "defaultExtension": "tsx"
+    }
+  },
   meta: {
     "*.ts": {
       "loader": "plugin-typescript"
@@ -323,7 +648,10 @@ SystemJS.config({
     "libraries/classnames": "npm:classnames@2.2.5",
     "libraries/core-decorators": "npm:core-decorators@0.20.0",
     "libraries/react": "npm:react@16.1.1",
+    "libraries/react-document-title": "npm:react-document-title@2.0.3",
     "libraries/react-dom": "npm:react-dom@16.1.1",
+    "libraries/react-router": "npm:react-router@4.2.0",
+    "libraries/react-router-dom": "npm:react-router-dom@4.2.2",
     "os": "npm:jspm-nodelibs-os@0.2.2",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "process": "npm:jspm-nodelibs-process@0.2.1",
@@ -698,6 +1026,63 @@ SystemJS.config({
     "npm:encoding@0.1.12": {
       "map": {
         "iconv-lite": "npm:iconv-lite@0.4.19"
+      }
+    },
+    "npm:react-router@4.2.0": {
+      "map": {
+        "path-to-regexp": "npm:path-to-regexp@1.7.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "warning": "npm:warning@3.0.0",
+        "prop-types": "npm:prop-types@15.6.0",
+        "invariant": "npm:invariant@2.2.2",
+        "history": "npm:history@4.7.2",
+        "hoist-non-react-statics": "npm:hoist-non-react-statics@2.3.1"
+      }
+    },
+    "npm:warning@3.0.0": {
+      "map": {
+        "loose-envify": "npm:loose-envify@1.3.1"
+      }
+    },
+    "npm:invariant@2.2.2": {
+      "map": {
+        "loose-envify": "npm:loose-envify@1.3.1"
+      }
+    },
+    "npm:history@4.7.2": {
+      "map": {
+        "invariant": "npm:invariant@2.2.2",
+        "warning": "npm:warning@3.0.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "value-equal": "npm:value-equal@0.4.0",
+        "resolve-pathname": "npm:resolve-pathname@2.2.0"
+      }
+    },
+    "npm:path-to-regexp@1.7.0": {
+      "map": {
+        "isarray": "npm:isarray@0.0.1"
+      }
+    },
+    "npm:react-router-dom@4.2.2": {
+      "map": {
+        "invariant": "npm:invariant@2.2.2",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "react-router": "npm:react-router@4.2.0",
+        "prop-types": "npm:prop-types@15.6.0",
+        "history": "npm:history@4.7.2",
+        "warning": "npm:warning@3.0.0"
+      }
+    },
+    "npm:react-document-title@2.0.3": {
+      "map": {
+        "react-side-effect": "npm:react-side-effect@1.1.3",
+        "prop-types": "npm:prop-types@15.6.0"
+      }
+    },
+    "npm:react-side-effect@1.1.3": {
+      "map": {
+        "shallowequal": "npm:shallowequal@1.0.2",
+        "exenv": "npm:exenv@1.2.2"
       }
     }
   }
